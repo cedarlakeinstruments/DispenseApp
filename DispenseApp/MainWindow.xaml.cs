@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
-using System.Threading;
 using Prt232Io;
 
 namespace DispenseApp
@@ -25,11 +17,12 @@ namespace DispenseApp
         //PRT232_IO controller;
         Prt232Control control;
         DispatcherTimer myTimer;
-        enum calibration {liter= 450};
-        double rate;
-        DateTime lastCalc;
-        double lastVolume;
         double dispenseVolume;
+
+        /// <summary>
+        /// Definitions for pump & valve channels
+        /// </summary>
+        private enum Output {PumpChannel = 0, ValveChannel = 1};
 
         public MainWindow()
         {
@@ -39,54 +32,61 @@ namespace DispenseApp
             myTimer.IsEnabled= true;
             myTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispenseVolume = -1;
+            labelUnits.Content = Properties.Settings.Default.flowUnits;
+            this.control = new Prt232Control(Properties.Settings.Default.port, 19200);
 
-            this.control = new Prt232Control("COM1", 19200);
+            // Add com ports
+            MenuItem mi = menuSetup.Items[0] as MenuItem;
+            string[] theSerialPortNames = System.IO.Ports.SerialPort.GetPortNames();
+            foreach (string name in theSerialPortNames)
+            {
+                mi.Items.Add(name);
+            }
+
             if (true == this.control.connect())
             {
                 myTimer.Start();
-                this.lastCalc = DateTime.Now;
-                this.lastVolume = 0;
             }
         }
 
+        /// <summary>
+        /// Periodic timer to update display
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            double liters= this.control.readCount()/450.0;
+            double liters= this.control.readCount() * Properties.Settings.Default.scale;
             this.labelCount.Content = String.Format("{0:0.00}", liters);
-            if ((DateTime.Now - this.lastCalc).Seconds >= 6)
-            {
-                this.lastCalc = DateTime.Now;
-                rate = (liters - this.lastVolume) * 10;
-                this.lastVolume = liters;
-                if (rate >= 0)
-                {
-                    labelRate.Content = String.Format("{0:0.00}", rate);
-                }
-            }
-            if (this.dispenseVolume > 0 && liters > this.dispenseVolume)
-            {
-                // Pump off
-                this.control.setOutput(7, false);
-                // Valve closed
-                this.control.setOutput(5, false);
-                this.labelPumpStat.Background = Brushes.Black;
-            }
         }
 
+        /// <summary>
+        /// Turn pump on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonToggle_Click(object sender, RoutedEventArgs e)
         {
-            this.dispenseVolume = -1;
-            this.control.setOutput(7, true);
+            this.control.setOutput((int)Output.PumpChannel, true);
             this.labelPumpStat.Background = Brushes.Red;
         }
 
+        /// <summary>
+        /// Turn pump off
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonOff_Click(object sender, RoutedEventArgs e)
         {
-            this.dispenseVolume = -1;
-            this.control.setOutput(7, false);
+            this.control.setOutput((int)Output.PumpChannel, false);
             this.labelPumpStat.Background = Brushes.Black;
         }
 
+        /// <summary>
+        /// Reset the pulse count
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonReset_Click(object sender, RoutedEventArgs e)
         {
             this.control.resetCount();
@@ -105,14 +105,43 @@ namespace DispenseApp
             }
         }
 
+        /// <summary>
+        /// Turn valve on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonValve_Click(object sender, RoutedEventArgs e)
         {
-            this.control.setOutput(5, true);
+            this.control.setOutput((int)Output.ValveChannel, true);
         }
 
+        /// <summary>
+        /// Turn valve off
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonValveOff_Click(object sender, RoutedEventArgs e)
         {
-            this.control.setOutput(5, false);
+            this.control.setOutput((int)Output.ValveChannel, false);
+        }
+        
+        /// <summary>
+        /// Handler for the main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem mi = e.Source as MenuItem;
+            if (mi.Name == "menuItemPort")
+            {
+                foreach (MenuItem m in mi.Items)
+                {
+                    bool b = m.IsPressed;
+                    if (b)
+                        break;
+                }
+            }
         }
     }
 }

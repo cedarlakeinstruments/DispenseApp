@@ -1,0 +1,25 @@
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\bin\Debug\DispenseApp.exe
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\bin\Debug\DispenseApp.pdb
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\MainWindow.baml
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\MainWindow.g.cs
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\App.g.cs
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp_MarkupCompile.cache
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.g.resources
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.Properties.Resources.resources
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.exe
+C:\Documents and Settings\lyndon\My Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.pdb
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.exe
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.pdb
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\bin\Debug\DispenseApp.exe
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\bin\Debug\DispenseApp.pdb
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\MainWindow.baml
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\MainWindow.g.cs
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\App.g.cs
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp_MarkupCompile.cache
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.g.resources
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.Properties.Resources.resources
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\obj\x86\Debug\DispenseApp.csproj.GenerateResource.Cache
+C:\Users\lyndon\Documents\Projects\DispenseApp\DispenseApp\bin\Debug\DispenseApp.exe.config
