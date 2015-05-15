@@ -9,7 +9,7 @@
       <Value Profile="(Default)">Pulses</Value>
     </Setting>
     <Setting Name="port" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM1</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

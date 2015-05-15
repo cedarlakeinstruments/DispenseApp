@@ -40,6 +40,11 @@ namespace Prt232Io
         {
             try
             {
+                if (this.port != null)
+                {
+                    this.port.Dispose();
+                }
+
                 this.port = new SerialPort(this.name, this.rate);
                 this.port.Handshake = Handshake.None;
                 this.port.DataBits = 8;
