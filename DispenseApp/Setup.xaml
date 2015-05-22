@@ -1,0 +1,21 @@
+﻿<Window x:Class="DispenseApp.Setup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Setup" Height="300" Width="390"
+        FontSize="16">
+    <Grid Margin="10,0,0,0">
+        <Grid HorizontalAlignment="Left" Height="Auto" Margin="41,39,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Label Content="Units" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Width="121"/>
+        <TextBox Name="UnitsName" HorizontalAlignment="Left" Height="29" Margin="227,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="116"/>
+        <Label Content="Flow description" HorizontalAlignment="Left" Margin="55,88,0,0" VerticalAlignment="Top" Width="135"/>
+        <TextBox Name="FlowDesc" HorizontalAlignment="Left" Height="33" Margin="227,88,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="116"/>
+        <Label Content="Valve description" HorizontalAlignment="Left" Margin="55,130,0,0" VerticalAlignment="Top" Width="135"/>
+        <TextBox Name="ValveDesc" HorizontalAlignment="Left" Height="29" Margin="227,130,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="116"/>
+        <Label Content="Pump description" HorizontalAlignment="Left" Margin="55,169,0,0" VerticalAlignment="Top" Width="135"/>
+        <TextBox Name="PumpDesc" HorizontalAlignment="Left" Height="29" Margin="227,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="116"/>
+        <Button Content="Save and Exit" HorizontalAlignment="Left" Margin="130,218,0,0" VerticalAlignment="Top" Width="125" Height="42" Click="Button_Click"/>
+        <Label Content="Unit conversion" HorizontalAlignment="Left" Margin="55,39,0,0" VerticalAlignment="Top" Width="135"/>
+        <TextBox Name="UnitsConv" HorizontalAlignment="Left" Height="23" Margin="227,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="116"/>
+
+    </Grid>
+</Window>

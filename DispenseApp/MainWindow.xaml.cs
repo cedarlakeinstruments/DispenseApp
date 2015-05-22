@@ -19,8 +19,6 @@ namespace DispenseApp
         DispatcherTimer myTimer;
         double dispenseVolume;
 
-        string Units { get; set; }
-
         /// <summary>
         /// Definitions for pump & valve channels
         /// </summary>
@@ -28,9 +26,10 @@ namespace DispenseApp
 
         public MainWindow()
         {
-            Units = Properties.Settings.Default.flowUnits;
             InitializeComponent();
-            myTimer= new DispatcherTimer();
+            LoadWindowText();
+
+            myTimer = new DispatcherTimer();
             myTimer.Interval= new TimeSpan(0,0,0,0,500);
             myTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispenseVolume = -1;
@@ -51,7 +50,6 @@ namespace DispenseApp
             if (theSerialPortNames.Length == 0)
             {
                 MessageBox.Show("This device needs a serial connection", "No serial ports found");
-                //Application.Current.Shutdown(); 
             }
 
             // Disable controls
@@ -76,6 +74,16 @@ namespace DispenseApp
                     buttonValveOn.IsEnabled = true;
                 }
             }
+        }
+
+        /// <summary>
+        /// Loads the display data for this dialog
+        /// </summary>
+        private void LoadWindowText()
+        {
+            labelUnits.Content = Properties.Settings.Default.UnitsDesc;
+            groupBoxValve.Header = Properties.Settings.Default.ValveDesc;
+            groupBoxPump.Header = Properties.Settings.Default.PumpDesc;
         }
 
         /// <summary>
@@ -162,11 +170,25 @@ namespace DispenseApp
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MenuItem mi = e.Source as MenuItem;
-            if (connect(mi.Name))
+            switch (mi.Header.ToString())
             {
-                // Save port name if successful
-                Properties.Settings.Default.port = mi.Name;
-                Properties.Settings.Default.Save();
+                case "Port":
+                {
+                    if (connect(mi.Name))
+                    {
+                        // Save port name if successful
+                        Properties.Settings.Default.port = mi.Name;
+                        Properties.Settings.Default.Save();
+                    }
+                    break;
+                }
+                case "Display":
+                {
+                    Setup dlg = new Setup();
+                    dlg.ShowDialog();
+                    LoadWindowText();
+                    break;
+                }
             }
         }
 

@@ -11,27 +11,27 @@
         </Style>
     </Window.Resources>
     <Grid Background="Black" Margin="0,4,2,3">
-        <GroupBox Header="Pump Controls" Height="170" HorizontalAlignment="Left" Margin="264,169,0,0" Name="groupBox1" VerticalAlignment="Top" Width="272">
+        <GroupBox Header="Pump Controls" Height="170" HorizontalAlignment="Left" Margin="264,169,0,0" Name="groupBoxPump" VerticalAlignment="Top" Width="272">
             <Grid>
                 <Label Content="" Height="74" HorizontalAlignment="Left" Margin="10,29,0,0" Name="labelPumpStat" VerticalAlignment="Top" Background="Gray" Width="82" BorderThickness="2" />
                 <Button Content="Pump On" Height="53" HorizontalAlignment="Left" Margin="112,6,0,0" Name="buttonPumpOn" VerticalAlignment="Top" Width="119" Click="buttonToggle_Click" />
                 <Button Content="Pump Off" Height="56" HorizontalAlignment="Left" Margin="112,0,0,12" Name="buttonPumpOff" VerticalAlignment="Bottom" Width="119" Click="buttonOff_Click" />
             </Grid>
         </GroupBox>
-        <GroupBox Header="Flow" Height="198" HorizontalAlignment="Left" Margin="12,25,0,0" Name="groupBox2" VerticalAlignment="Top" Width="235">
+        <GroupBox Header="Flow" Height="198" HorizontalAlignment="Left" Margin="12,25,0,0" Name="groupBoxFlow" VerticalAlignment="Top" Width="235">
             <Grid Height="169" Width="222">
                 <Label Content="0" Name="labelCount" BorderBrush="Yellow" Foreground="Blue" FontFamily="Arial" FontSize="40" HorizontalContentAlignment="Right" BorderThickness="1" VerticalAlignment="Top" Margin="10,51,23,0" Height="50" />
                 <Button Content="Reset" Background="DarkSlateBlue" HorizontalAlignment="Left" Margin="67,121,0,0" Name="buttonReset" VerticalAlignment="Top" Width="89" Click="buttonReset_Click" FontSize="16" FontWeight="Bold" Height="34" />
-                <Label Height="28" HorizontalAlignment="Center" Margin="46,23,45,0" Name="labelUnits" VerticalAlignment="Top" Width="133" FontSize="14" Content="{Binding Path=Units}"/>
+                <Label Height="28" HorizontalAlignment="Center" Margin="46,23,45,0" Name="labelUnits" VerticalAlignment="Top" Width="133" FontSize="14" Foreground="LightGray" Content="Pulses"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Dispense Limit" Height="156" HorizontalAlignment="Left" Margin="264,344,0,0" Name="groupBox3" VerticalAlignment="Top" Width="272">
+        <GroupBox Header="Dispense Limit" Height="156" HorizontalAlignment="Left" Margin="264,344,0,0" Name="groupBoxLimit" VerticalAlignment="Top" Width="272">
             <Grid Margin="0,0,-2,0" HorizontalAlignment="Left" Width="262">
                 <Button Content="Set" Height="59" HorizontalAlignment="Left" Margin="111,49,0,0" Name="buttonDispLimit" VerticalAlignment="Top" Width="125" Click="buttonDisp_Click" />
                 <TextBox Height="41" HorizontalAlignment="Left" Margin="95,0,0,0" Name="textBoxDispense" VerticalAlignment="Top" Width="157" Text="1.0"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Valve Controls" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="264,30,0,0" Name="groupBox4" Width="272" Height="139">
+        <GroupBox Header="Valve Controls" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="264,30,0,0" Name="groupBoxValve" Width="272" Height="139">
             <Grid>
                 <Label Background="Gray" BorderThickness="2" Content="" Height="81" HorizontalAlignment="Left" Margin="10,10,0,0" Name="label2" VerticalAlignment="Top" Width="75" />
                 <Button Click="buttonValve_Click" Content="Open Valve" Height="45" HorizontalAlignment="Left" Margin="107,0,0,0" Name="buttonValveOn" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.924,0.494" />
@@ -41,6 +41,7 @@
         <Menu Height="23" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="104">
             <MenuItem Header="Setup" Click="MenuItem_Click" Name="menuSetup">
                 <MenuItem Header="Port" Name="menuItemPort"/>
+                <MenuItem Header="Display" Name="menuItemDisplay"/>
             </MenuItem>
         </Menu>
     </Grid>

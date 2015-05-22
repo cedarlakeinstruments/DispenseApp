@@ -5,11 +5,17 @@
     <Setting Name="scale" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="flowUnits" Type="System.String" Scope="User">
+    <Setting Name="UnitsDesc" Type="System.String" Scope="User">
       <Value Profile="(Default)">Pulses</Value>
     </Setting>
     <Setting Name="port" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PumpDesc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Pump</Value>
+    </Setting>
+    <Setting Name="ValveDesc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Valve</Value>
     </Setting>
   </Settings>
 </SettingsFile>
